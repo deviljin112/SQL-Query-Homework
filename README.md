@@ -107,7 +107,6 @@ select top 5
     count(Orders.OrderID) as 'Overdue Orders'
 from Customers
 inner join Orders on Customers.CustomerID = Orders.CustomerID
-inner join [Order Details] on Orders.OrderID = [Order Details].OrderID
 where Orders.ShippedDate - Orders.RequiredDate > 10
 group by
     Customers.CustomerID,
@@ -133,7 +132,6 @@ select top 5
     count(Orders.OrderID) as 'Overdue Orders'
 from Customers
 inner join Orders on Customers.CustomerID = Orders.CustomerID
-inner join [Order Details] on Orders.OrderID = [Order Details].OrderID
 where Orders.ShippedDate - Orders.RequiredDate > 10 and City = 'Paris'
 group by
     Customers.CustomerID,
